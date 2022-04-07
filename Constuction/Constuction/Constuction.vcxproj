@@ -120,7 +120,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\GitHub\Construction-Game\Constuction\Constuction\libraries\include\SFML;E:\GitHub\Construction-Game\Constuction\Constuction\libraries\include\SFML\Window;E:\GitHub\Construction-Game\Constuction\Constuction\libraries\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\GitHub\Construction-Game\Constuction\Constuction\libraries\include\SFML;E:\GitHub\Construction-Game\Constuction\Constuction\libraries\include\SFML\Window;E:\GitHub\Construction-Game\Constuction\Constuction\libraries\include;E:\GitHub\Construction-Game\Constuction\x64\Debug</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -138,7 +138,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\GitHub\Construction-Game\Constuction\Constuction\libraries\include\SFML;E:\GitHub\Construction-Game\Constuction\Constuction\libraries\include\SFML\Window;E:\GitHub\Construction-Game\Constuction\Constuction\libraries\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\GitHub\Construction-Game\Constuction\Constuction\libraries\include\SFML;E:\GitHub\Construction-Game\Constuction\Constuction\libraries\include\SFML\Window;E:\GitHub\Construction-Game\Constuction\Constuction\libraries\include;E:\GitHub\Construction-Game\Constuction\x64\Debug</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>

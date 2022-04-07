@@ -19,11 +19,7 @@ int main()
 
 	// Load font
 	sf::Font font;
-	if (!font.loadFromFile("AlexBrush-7XGA.tff"))
-	{
-		std::cout << "Fatal error: Could not load font" << std::endl;
-		return -1;
-	}
+	font.loadFromFile("E:/GitHub/Construction-Game/Constuction/x64/Debug/AlexBrush-7XGA.ttf");
 
 	// Define text
 	sf::Text text;
@@ -56,6 +52,8 @@ int main()
 		text.setPosition(500, 500);
 		text.setFillColor(sf::Color::Red);
 		
+		std::cout << clicks << std::endl;
+
 		// Draw all components
 		window.draw(text);
 
