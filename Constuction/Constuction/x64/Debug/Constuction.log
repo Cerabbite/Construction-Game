@@ -1,4 +1,3 @@
 ﻿  Main.cpp
-E:\GitHub\Construction-Game\Constuction\Constuction\Main.cpp(52,75): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-E:\GitHub\Construction-Game\Constuction\Constuction\Main.cpp(52,57): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\GitHub\Construction-Game\Constuction\Constuction\Main.cpp(66,22): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
   Constuction.vcxproj -> E:\GitHub\Construction-Game\Constuction\x64\Debug\Constuction.exe
