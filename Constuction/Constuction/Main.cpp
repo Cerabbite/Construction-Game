@@ -23,6 +23,7 @@ int main()
 	int clicks = 0;
 	int click_floor = 0;
 	int click_level = 0;
+	int click_level_floor = 0;
 	int click_level_blocks = 0;
 	int click_height = 0;
 	int click_floor_height = 0;
@@ -67,26 +68,29 @@ int main()
 					click_floor++;
 					click_level++;
 					click_level_blocks++;
-					building_block[click_level_blocks].setSize(sf::Vector2f(block_width, block_height));
-					building_block[click_level_blocks].setFillColor(sf::Color::Red);
+					click_level_floor++;
 					if (click_level == int(max_width / block_width))
 					{
 						click_level = 1;
-						if (click_floor_height == int(max_height / block_height))
-						{
-							click_floor_height = 0;
-							click_level = 0;
-							click_level_blocks = 0;
-
-							floor[click_floor].setSize(sf::Vector2f(block_width, block_height));
-							floor[click_floor].setFillColor(sf::Color::Red);
-							floor[click_floor].setPosition(width - (width / 2 - 100) - block_width * click_level, height - block_height - click_height);
-						}
-						click_height += block_height;
-						click_floor_height += block_height;
+						click_floor_height++;
 					}
+					building_block[click_level_blocks].setSize(sf::Vector2f(block_width, block_height));
+					building_block[click_level_blocks].setFillColor(sf::Color::Red);
+					building_block[click_level_blocks].setPosition(width - (width / 2 - 100) - block_width * click_level, height - block_height - click_height);
+					std::cout << click_floor_height << " : " << int(max_height / block_height) << std::endl;
+					if (click_floor_height == int(max_height / block_height))
+					{
+						click_floor_height = 0;
+						click_level = 0;
+						click_level_blocks = 0;
+						click_level_floor = 0;
 
-					building_block[click_level_blocks].setPosition(width - (width/2-100) - block_width * click_level, height - block_height - click_height);
+						floor[click_floor].setSize(sf::Vector2f(block_width, block_height));
+						floor[click_floor].setFillColor(sf::Color::Blue);
+						floor[click_floor].setPosition(width - (width / 2 - 100) - block_width * click_level, height - block_height - click_height);
+					}
+					click_height += block_height;
+					//click_floor_height += block_height;
 				}
 			}
 		}
@@ -101,14 +105,19 @@ int main()
 		//text.setPosition(500, 500);
 		//text.setFillColor(sf::Color::Red);
 		
-		std::cout << clicks << std::endl;
+		//std::cout << clicks << std::endl;
 
 		// Draw all components
 		//window.draw(text);
 
-		for (int i = 0; i <= click_floor; i++)
+		for (int i = 0; i <= click_level_blocks; i++)
 		{
 			window.draw(building_block[i]);
+		}
+
+		for (int i = 0; i <= click_floor; i++)
+		{
+			window.draw(floor[i]);
 		}
 
 		window.display(); // Tell app we have drawn everything
