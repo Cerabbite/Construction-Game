@@ -24,6 +24,7 @@ int main()
 	int click_floor = 0;
 	int click_level = 0;
 	int click_height = 0;
+	int click_floor_height = 0;
 	float block_width = 30;
 	float block_height = 30;
 
@@ -69,7 +70,17 @@ int main()
 					if (click_level == int(max_width / block_width))
 					{
 						click_level = 1;
+						if (click_floor_height == int(max_height / block_height))
+						{
+							click_floor_height = 0;
+							click_floor = 0;
+
+							floor[click_floor].setSize(sf::Vector2f(block_width, block_height));
+							floor[click_floor].setFillColor(sf::Color::Red);
+							floor[click_floor].setPosition(width - (width / 2 - 100) - block_width * click_level, height - block_height - click_height);
+						}
 						click_height += block_height;
+						click_floor_height += block_height;
 					}
 
 					building_block[click_floor].setPosition(width - (width/2-100) - block_width * click_level, height - block_height - click_height);
