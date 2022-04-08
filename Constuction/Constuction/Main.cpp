@@ -18,12 +18,14 @@ int main()
 	sf::Event ev;
 
 	// Define variables
+	int max_width = 300;
+	int max_height = 90;
 	int clicks = 0;
 	int click_floor = 0;
 	int click_level = 0;
 	int click_height = 0;
-	float block_width = 10;
-	float block_height = 15;
+	float block_width = 30;
+	float block_height = 30;
 
 	// Load font
 	//sf::Font font;
@@ -35,8 +37,9 @@ int main()
 
 	// Define building blocks
 	const int max_blocks = 100;
+	const int max_floors = 150;
 	sf::RectangleShape building_block[max_blocks];
-	sf::RectangleShape floor[150];
+	sf::RectangleShape floor[max_floors];
 
 	// Game loop
 	while (window.isOpen())
@@ -52,7 +55,7 @@ int main()
 
 			case sf::Event::MouseButtonPressed:
 				clicks++;
-				if (clicks == max_blocks)
+				if (clicks >= max_blocks)
 				{
 					std::cout << "Build the maximum ammount of blocks" << std::endl;
 					break;
@@ -63,13 +66,13 @@ int main()
 					click_level++;
 					building_block[click_floor].setSize(sf::Vector2f(block_width, block_height));
 					building_block[click_floor].setFillColor(sf::Color::Red);
-					if (click_level == 100 / block_width)
+					if (click_level == int(max_width / block_width))
 					{
 						click_level = 1;
 						click_height += block_height;
 					}
 
-					building_block[click_floor].setPosition(width - 50 - block_width * click_level, height - block_height - click_height);
+					building_block[click_floor].setPosition(width - (width/2-100) - block_width * click_level, height - block_height - click_height);
 				}
 			}
 		}
