@@ -23,6 +23,7 @@ int main()
 	int clicks = 0;
 	int click_floor = 0;
 	int click_level = 0;
+	int click_level_blocks = 0;
 	int click_height = 0;
 	int click_floor_height = 0;
 	float block_width = 30;
@@ -56,7 +57,7 @@ int main()
 
 			case sf::Event::MouseButtonPressed:
 				clicks++;
-				if (clicks >= max_blocks)
+				if (clicks >= max_blocks*5)
 				{
 					std::cout << "Build the maximum ammount of blocks" << std::endl;
 					break;
@@ -65,15 +66,17 @@ int main()
 				{
 					click_floor++;
 					click_level++;
-					building_block[click_floor].setSize(sf::Vector2f(block_width, block_height));
-					building_block[click_floor].setFillColor(sf::Color::Red);
+					click_level_blocks++;
+					building_block[click_level_blocks].setSize(sf::Vector2f(block_width, block_height));
+					building_block[click_level_blocks].setFillColor(sf::Color::Red);
 					if (click_level == int(max_width / block_width))
 					{
 						click_level = 1;
 						if (click_floor_height == int(max_height / block_height))
 						{
 							click_floor_height = 0;
-							click_floor = 0;
+							click_level = 0;
+							click_level_blocks = 0;
 
 							floor[click_floor].setSize(sf::Vector2f(block_width, block_height));
 							floor[click_floor].setFillColor(sf::Color::Red);
@@ -83,7 +86,7 @@ int main()
 						click_floor_height += block_height;
 					}
 
-					building_block[click_floor].setPosition(width - (width/2-100) - block_width * click_level, height - block_height - click_height);
+					building_block[click_level_blocks].setPosition(width - (width/2-100) - block_width * click_level, height - block_height - click_height);
 				}
 			}
 		}
